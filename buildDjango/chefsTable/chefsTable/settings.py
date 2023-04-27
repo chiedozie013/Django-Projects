@@ -31,13 +31,16 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'myapp.apps.MyappConfig', # string added. 
+    # Note: This is effectively the location of MyappConfig class inside the app-level apps.py file
+    # Relative path of the app needs to be added. This means, alternatively you could have also added simply the name of the app which is 'myapp' 
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'myapp'
+   
 ]
 
 MIDDLEWARE = [
