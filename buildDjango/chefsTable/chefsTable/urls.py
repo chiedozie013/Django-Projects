@@ -27,3 +27,5 @@ urlpatterns = [
     path('menu', views.menu),
     # path('home', views.home)
 ]
+
+handler404 = 'chefsTable.views.handler404'
