@@ -24,5 +24,6 @@ urlpatterns = [
     path('', include('myapp.urls')),
     path('homepage/',views.homepage),
     path('display_date', views.display_date),
-    path('menu', views.menu)
+    path('menu', views.menu),
+    # path('home', views.home)
 ]
