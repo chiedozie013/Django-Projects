@@ -22,4 +22,41 @@ def menu(request):
 
 def home(request):
     path = request.path
-    return HttpResponse(path, content_type='text/html', charset='utf-8')
+    scheme = request.scheme
+    method = request.method
+    address = request.META['REMOTE_ADDR']
+    user_agent = request.META['HTTP_USER_AGENT']
+    path_info = request.path_info
+
+    response = HttpResponse()
+    response.headers['Age'] = 20
+
+
+# Creating Request and Response
+# This is useful in creating forms, working with data bases and other common data structures in django
+
+    msg = f"""<br>
+        <br>Path: {path}
+        <br>Address: {address}
+        <br>Scheme: {scheme}
+        <br>Method: {method}
+        <br>User agent: {user_agent}
+        <br>Path info: {path_info}
+        <br>Response header: {response.headers}
+    
+    """
+    return HttpResponse(msg, content_type='text/html', charset='utf-8')
+
+
+#Mapping URLs with PArameters
+
+def menuitems(request, dish):
+    items = {
+        'pasta': 'Pasta is a type of noodle from comination of',
+        'falafel': 'Falafel are deep fried patties or balls made from',
+        'cheesecake': 'Cheesecake is a type of dessert made with cheese'
+    }
+
+    description = items[dish]
+
+    return HttpResponse(f"<h2> {dish} <h2>" + description)
