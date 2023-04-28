@@ -59,4 +59,4 @@ def menuitems(request, dish):
 
     description = items[dish]
 
-    return HttpResponse(f"<h2> {dish} <h2>" + description)
+    return HttpResponse(f"<h2> {dish} </h2>" + description)
